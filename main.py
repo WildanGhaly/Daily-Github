@@ -38,17 +38,13 @@ def main(remote_url, start_year=2023):
             filename = create_file(current_date, file_id)
             file_ids.append(filename)
             subprocess.run(["git", "add", filename])
-        
-        # First Commit: Adding files
-        commit_file(f"Add files for {current_date}", current_date)
+            commit_file(f"Add files for {current_date}", current_date)
 
         # Second Commit: Remove the files
         for filename in file_ids:
             os.remove(filename)
             subprocess.run(["git", "rm", filename])
-        
-        # Commit the removal
-        commit_file(f"Remove files for {current_date}", current_date)
+            commit_file(f"Remove files for {current_date}", current_date)
 
         # Push changes to the remote repository
         push_changes()
@@ -58,5 +54,5 @@ def main(remote_url, start_year=2023):
 
 if __name__ == "__main__":
     # Set your remote repository URL
-    remote_url = "https://your-remote-repository-url.git"
+    remote_url = "https://github.com/WildanGhaly/Daily-Github.git"
     main(remote_url)
